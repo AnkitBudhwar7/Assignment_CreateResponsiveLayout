@@ -9,204 +9,65 @@ Implement your CSS code in this file. Do not change anything in any other file.
 Only this will be graded.
 */
 
-html {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 200;
-    font-size: 16px;
-}
+/* DESKTOP (default) */
 
-body {
-    width: 70%;
-    margin: auto;
-}
-
-.cursive {
-    font-family: "Pacifico", cursive;
-    color: darkorange;
-}
-
-.title {
-    font-size: 1.7rem !important;
-}
-
-.subtitle {
-    font-size: 1.3rem;
-    font-weight: 300;
-}
-
-.display_md {
-    display: unset;
-}
-
-.display_sm {
-    display: none;
-}
-
-header p {
-    font-weight: 400;
-    padding: 10px 0;
-}
-
-#topMenu a {
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    font-weight: 500;
-    border: 1px solid white;
-    border-radius: 5px;
-}
-
-#topMenu a:hover {
-    color: black;
-    border: 1px solid black;
-}
-
-#topMenu a.button {
-    background-color: black;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-#topMenu a.button:hover {
-    background-color: white;
-    color: black;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.bottompadding {
-    padding-bottom: 20px;
-}
-
-footer img {
-    width: 20px;
-    border-radius: 5px;
-}
-
-footer {
+/* Already handled in starter_styles.css, but adding for clarity */
+#mainBody {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    border-top: 1px solid grey;
-    padding: 30px 0;
-    margin-bottom: 30px;
+    flex-direction: row;
+    gap: 100px;
+    margin-bottom: 50px;
 }
 
-#leftFooter {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-}
-
-#rightFooter {
-    width: 40%;
-}
-
-table {
-    width: 100%;
-}
-
-tr {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    padding: 5px 0;
+#leftContainer,
+#rightContainer {
+    flex: 1;
 }
 
 #rightContainer {
     display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(3, 160px);
     gap: 10px;
 }
 
-.gridImage {
-    border: 1px solid orange;
-    border-radius: 10px;
-    overflow: hidden;
+header {
+    padding: 30px 0;
 }
 
-.gridImage img {
-    width: 100%;
-    height: 100%;
-}
-
-.gridImage:hover,
-.externalWebsiteLink img:hover {
-    transform: scale(1.02);
-    transition: .8s ease-out;
-}
-
-.externalWebsiteLink {
-    padding: 5px;
-    display: inline-block;
-}
-
-
-/* ========== ✅ MEDIA QUERIES START HERE ========== */
-
-/* 🔹 Under 1000px breakpoint — Tablet and small laptop */
-@media (max-width: 1000px) {
+/* TABLET VIEW */
+@media (max-device-width: 1000px) {
     body {
-        width: 90%;
+        width: 60%;
     }
 
-    .title {
-        font-size: 1.5rem !important;
-    }
-
-    .subtitle {
-        font-size: 1.1rem;
-    }
-
-    footer {
+    #mainBody {
         flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        text-align: center;
-    }
-
-    #rightFooter {
-        width: 100%;
-    }
-}
-
-/* 🔹 Under 570px breakpoint — Mobile phones */
-@media (max-width: 570px) {
-    .display_md {
-        display: none;
-    }
-
-    .display_sm {
-        display: unset;
-    }
-
-    #topMenu a {
-        display: block;
-        margin: 5px 0;
-        text-align: center;
-    }
-
-    .title {
-        font-size: 1.3rem !important;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    footer {
-        padding: 20px 0;
-    }
-
-    tr {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
+        gap: 40px;
     }
 
     #rightContainer {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 160px);
+    }
+
+    .display_md {
+        display: none;
     }
 }
-/* ========== ✅ MEDIA QUERIES END ========== */
+
+/* MOBILE VIEW */
+@media (max-device-width: 570px) {
+    body {
+        width: 80%;
+    }
+
+    #mainBody {
+        flex-direction: column;
+    }
+
+    #rightContainer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 160px);
+    }
+}
